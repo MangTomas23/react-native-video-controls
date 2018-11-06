@@ -1081,7 +1081,7 @@ export default class VideoPlayer extends Component {
         onPress={this.events.onScreenTouch}
         style={[styles.player.container, this.styles.containerStyle]}
       >
-        <View style={[styles.player.container, this.styles.containerStyle]}>
+        <View style={this.props.containerStyle}>
           <Video
             {...this.props}
             ref={videoPlayer => (this.player.ref = videoPlayer)}
@@ -1095,7 +1095,7 @@ export default class VideoPlayer extends Component {
             onError={this.events.onError}
             onLoad={this.events.onLoad}
             onEnd={this.events.onEnd}
-            style={[styles.player.video, this.styles.videoStyle]}
+            style={[{ ...styles.player.video, ...this.styles.videoStyle }]}
             source={this.props.source}
           />
           {this.renderError()}
